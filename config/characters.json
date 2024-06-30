@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Anna",
+        "chance": 0.1,
+        "baseAttack": "150",
+        "baseDefense": "120",
+        "baseSpeed": "100",
+        "baseCrit": "100",
+        "baseHp": "100",
+        "race": "Demon",
+        "class": "Warrior",
+        "level": 1,
+        "Description": "Anna is a demon warrior",
+        "ImageURL": "",
+        "banner": "Special",
+        "onGoing": 1
+    },
+    {
+        "id": 2,
+        "name": "Qwen",
+        "chance": 0.9,
+        "baseAttack": "100",
+        "baseDefense": "100",
+        "baseSpeed": "100",
+        "baseCrit": "100",
+        "baseHp": "100",
+        "race": "Human",
+        "class": "Archer",
+        "level": 1,
+        "Description": "Qwen is a human archer",
+        "ImageURL": "",
+        "banner": "Normal",
+        "onGoing": 1
+    },
+    {
+        "id": 3,
+        "name": "Sophie",
+        "chance": 0.1,
+        "baseAttack": "150",
+        "baseDefense": "120",
+        "baseSpeed": "100",
+        "baseCrit": "100",
+        "baseHp": "100",
+        "race": "Demon",
+        "class": "Mage",
+        "level": 1,
+        "Description": "Sophie is a demon mage",
+        "ImageURL": "",
+        "banner": "Special",
+        "onGoing": 1
+    },
+    {
+        "id": 4,
+        "name": "Savior",
+        "chance": 0.9,
+        "baseAttack": "100",
+        "baseDefense": "100",
+        "baseSpeed": "100",
+        "baseCrit": "100",
+        "baseHp": "100",
+        "race": "Human",
+        "class": "Healer",
+        "level": 1,
+        "Description": "Savior is a human healer",
+        "ImageURL": "",
+        "banner": "Normal",
+        "onGoing": 1
+    }
+
+
+]
