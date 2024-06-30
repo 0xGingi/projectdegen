@@ -11,7 +11,6 @@ module.exports = {
         .setName('signup')
         .setDescription('Create your Project Degenerate Account'),
     async execute(interaction) {
-        console.log("hello");
         let user = interaction.user;
         
         let playerCreateEmbed = new EmbedBuilder()

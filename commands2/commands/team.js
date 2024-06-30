@@ -35,11 +35,36 @@ module.exports = {
                    .setThumbnail(interaction.user.displayAvatarURL())
                    .setFooter('Team')
                    .setTimestamp();
+
+                   let totalAtk = 0;
+                   let totalDef = 0;
+                   let totalHp = 0;
+                   let totalSpeed = 0;
+                   let totalCrit = 0;
+               
+4               
                 for (let i = 0; i < user.team.length; i++) {
-                    embed.addField(characters[user.team[i]].name, characters[user.team[i]].description);
+                    const character = user.characters.find(c => c.Id === user.team[i]);
+                    if (character) {
+                        embed.addField(character.Name, character.Description);
+                        totalAtk += character.baseAtk;
+                        totalDef += character.baseDef;
+                        totalHp += character.baseHp;
+                        totalSpeed += character.baseSpeed;
+                        totalCrit += character.baseCrit;
+                    }
                 }
+
+                embed.addFields(
+                    { name: 'Total Attack', value: totalAtk.toString(), inline: true },
+                    { name: 'Total Defense', value: totalDef.toString(), inline: true },
+                    { name: 'Total HP', value: totalHp.toString(), inline: true },
+                    { name: 'Total Speed', value: totalSpeed.toString(), inline: true },
+                    { name: 'Total Critical', value: totalCrit.toString(), inline: true }
+                );
+
                 return interaction.reply({ embeds: [embed] });
-            }
+                }
 
             if (interaction.options.getSubcommand() === 'edit') {
                 //Edit team

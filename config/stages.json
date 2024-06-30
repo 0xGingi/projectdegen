@@ -1,0 +1,23 @@
+[
+    {
+        "stage": "1-1",
+        "Name": "Dorothy",
+        "Level": "1",
+        "Class": "Fighter",
+        "Race": "Human",
+        "Description": "Dorothy is a evil human fighter",
+        "baseAtk": 350,
+        "baseDef": 350,
+        "baseHp": 350,
+        "baseSpd": 350,
+        "baseCrit": 350,
+        "ImageURL": "https://degen.0xgingi.com/Dorothy.jpeg",
+        "rewards": [
+            {
+            "crystals": 100,
+            "gems": 10
+            }
+
+        ]
+    }
+]

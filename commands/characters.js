@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const PLAYER = require('../modules/Player.js');
-
+const characterjson = require('../config/characters.json');
 module.exports = {
     info: {
         names: ['characters']
@@ -29,7 +29,7 @@ module.exports = {
 
         if (characterName) {
             const character = user.characters.find(c => c.Name.toLowerCase() === characterName.toLowerCase());
-
+            const characterinjson = characterjson.find(c => c.name.toLowerCase() === characterName.toLowerCase());
             if (!character) {
                 return interaction.reply(`You do not have a character named ${characterName}.`);
             }
@@ -38,6 +38,7 @@ module.exports = {
                 .setColor(0x0099FF)
                 .setTitle(character.Name)
                 .setDescription(character.Description)
+                .setImage(characterinjson.ImageURL)
                 .addFields(
                     { name: 'Level', value: character.Level.toString(), inline: true },
                     { name: 'Class', value: character.Class, inline: true },
@@ -49,7 +50,7 @@ module.exports = {
                     { name: 'Base Speed', value: character.baseSpeed.toString(), inline: true },
                     { name: 'Base Crit', value: character.baseCrit.toString(), inline: true },
                 );
-
+                console.log(characterinjson.ImageURL)
             return interaction.reply({ embeds: [embed] });
         } else {
             const embed = new EmbedBuilder()

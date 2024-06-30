@@ -12,7 +12,7 @@
         "class": "Warrior",
         "level": 1,
         "Description": "Anna is a demon warrior",
-        "ImageURL": "",
+        "ImageURL": "https://degen.0xgingi.com/Anna.jpeg",
         "banner": "Special",
         "onGoing": 1
     },
@@ -29,7 +29,7 @@
         "class": "Archer",
         "level": 1,
         "Description": "Qwen is a human archer",
-        "ImageURL": "",
+        "ImageURL": "https://degen.0xgingi.com/Qwen.jpeg",
         "banner": "Normal",
         "onGoing": 1
     },
@@ -46,7 +46,7 @@
         "class": "Mage",
         "level": 1,
         "Description": "Sophie is a demon mage",
-        "ImageURL": "",
+        "ImageURL": "https://degen.0xgingi.com/Sophie.jpeg",
         "banner": "Special",
         "onGoing": 1
     },
@@ -63,7 +63,7 @@
         "class": "Healer",
         "level": 1,
         "Description": "Savior is a human healer",
-        "ImageURL": "",
+        "ImageURL": "https://degen.0xgingi.com/Savior.jpeg",
         "banner": "Normal",
         "onGoing": 1
     }

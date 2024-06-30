@@ -38,6 +38,7 @@ module.exports = {
                 .setColor(0x0099FF)
                 .setTitle(character.Name)
                 .setDescription(character.Description)
+                .setImage(character.ImageURL)
                 .addFields(
                     { name: 'Level', value: character.Level.toString(), inline: true },
                     { name: 'Class', value: character.Class, inline: true },

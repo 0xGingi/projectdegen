@@ -32,7 +32,9 @@ module.exports = {
                 if (user.normalTicket <= 0) {
                     return interaction.reply('You do not have enough normal tickets.');
                 }
-        
+                await interaction.deferReply();
+                const gifMessage = await interaction.channel.send('https://degen.0xgingi.com/shootingstar.gif');
+                await new Promise(resolve => setTimeout(resolve, 3000));
                 user.normalTicket -= 1;
                 const character = await getRandomCharacter('Normal');
                 const existingCharacter = user.characters.find(c => c.Name.toLowerCase() === character.name.toLowerCase());
@@ -45,7 +47,11 @@ module.exports = {
                     existingCharacter.baseCrit += 100;
                     existingCharacter.dupes += 1;
                     await user.save();
-                    return interaction.reply(`You have summoned a duplicate of ${character.name}! All Stats +100!`);
+                    const embed = new EmbedBuilder()
+                    .setTitle(`You have summoned a duplicate of ${character.name}! All Stats +100!`)
+                    .setImage(character.ImageURL);
+                    await gifMessage.delete();
+                    await interaction.editReply({ embeds: [embed] });
                 } else {
                     user.characters.push({
                         Id: character.id,
@@ -62,14 +68,22 @@ module.exports = {
                         dupes: 0,
                     });
                     await user.save();
-                    return interaction.reply(`You have summoned ${character.name}!`);
+                    const embed = new EmbedBuilder()
+                    .setTitle(`You have summoned ${character.name}!`)
+                    .setImage(character.ImageURL);
+                    await gifMessage.delete();
+                    await interaction.editReply({ embeds: [embed] });
+            
                 }
         
             } else if (interaction.options.getSubcommand() === 'special') {
                 if (user.specialTicket <= 0) {
                     return interaction.reply('You do not have enough special tickets.');
                 }
-        
+                await interaction.deferReply();
+                const gifMessage = await interaction.channel.send('https://degen.0xgingi.com/shootingstar.gif');
+                await new Promise(resolve => setTimeout(resolve, 3000));
+
                 user.specialTicket -= 1;
                 const character = await getRandomCharacter('Special');
                 const existingCharacter = user.characters.find(c => c.Name.toLowerCase() === character.name.toLowerCase());
@@ -82,7 +96,12 @@ module.exports = {
                     existingCharacter.baseCrit += 100;
                     existingCharacter.dupes += 1;
                     await user.save();
-                    return interaction.reply(`You have summoned a duplicate of ${character.name}! All Stats +100!`);
+                    const embed = new EmbedBuilder()
+                    .setTitle(`You have summoned a duplicate of ${character.name}! All Stats +100!`)
+                    .setImage(character.ImageURL);
+            
+                    await gifMessage.delete();
+                    await interaction.editReply({ embeds: [embed] });
                 } else {
                     user.characters.push({
                         Id: character.id,
@@ -99,7 +118,13 @@ module.exports = {
                         dupes: 0,
                     });
                     await user.save();
-                    return interaction.reply(`You have summoned ${character.name}!`);
+                    const embed = new EmbedBuilder()
+                    .setTitle(`You have summoned ${character.name}!`)
+                    .setImage(character.ImageURL);
+            
+                    await gifMessage.delete();
+                    await interaction.editReply({ embeds: [embed] });
+
                 }
             }            
         },

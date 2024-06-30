@@ -1,9 +1,9 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder, Message, Events, ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const { client } = require('../../App/index.js');
-const PLAYER = require('../../modules/Player.js');
-const STATS = require('../../modules/Stats.js');
-const characters = require('../../config/characters.json');
+const { client } = require('../App/index.js');
+const PLAYER = require('../modules/Player.js');
+const STATS = require('../modules/Stats.js');
+const characters = require('../config/characters.json');
 module.exports = {
     info: {
         names: ['profile']
@@ -39,14 +39,9 @@ module.exports = {
         let power = totalAtk + (totalDef / 2);
 
         embed.addFields([
-            { name: `Level`, value: `${user.level}` },
-            { name: `Experience`, value: `${user.xp}` },
-            { name: `Stage`, value: `${user.stage}` },
-            { name: `Normal Tickets`, value: `${user.normalTicket}` },
-            { name: `Special Tickets`, value: `${user.specialTicket}` },
-            { name: `Crystals`, value: `${user.crystals}` },
-            { name: `Gems` , value: `${user.gems}` },
-            { name: `Team Power`, value: `${power}` }
+            { name: `Progress`, value: `Level: ${user.level}\nXP: ${user.xp}\nStage: ${user.stage}`, inline: true },
+            { name: `Currency`, value: `Normal Tickets: ${user.normalTicket}\nSpecial Tickets: ${user.specialTicket}\nCrystals: ${user.crystals}\nGems: ${user.gems}`, inline: true },
+            { name: `Team Power`, value: `${power}`, inline: true }
 
         ]);     
         

@@ -45,19 +45,41 @@ module.exports = {
                 .setDescription('Your team')
                 .setColor(0x00ff00)
                 .setThumbnail(interaction.user.displayAvatarURL())
-                .setFooter({ text: 'Team' })
                 .setTimestamp();
-                for (let i = 0; i < user.team.length; i++) {
-                    const character = user.characters.find(c => c.Id === user.team[i]);
-                    embed.addFields([
-                        { name: character.Name, value: character.Description }
-                    ]);
-                    
+        
+            let totalAtk = 0;
+            let totalDef = 0;
+            let totalHp = 0;
+            let totalSpeed = 0;
+            let totalCrit = 0;
+        
+            const fields = [];
+        
+            for (let i = 0; i < user.team.length; i++) {
+                const character = user.characters.find(c => c.Id === user.team[i]);
+                if (character) {
+                    fields.push({ name: character.Name, value: character.Description });
+                    totalAtk += character.baseAtk;
+                    totalDef += character.baseDef;
+                    totalHp += character.baseHp;
+                    totalSpeed += character.baseSpeed;
+                    totalCrit += character.baseCrit;
                 }
-                            
-                return interaction.reply({ embeds: [embed] });
+            }
+        
+            fields.push(
+                { name: 'Total Attack', value: totalAtk.toString(), inline: true },
+                { name: 'Total Defense', value: totalDef.toString(), inline: true },
+                { name: 'Total HP', value: totalHp.toString(), inline: true },
+                { name: 'Total Speed', value: totalSpeed.toString(), inline: true },
+                { name: 'Total Critical', value: totalCrit.toString(), inline: true }
+            );
+        
+            embed.addFields(fields);
+        
+            return interaction.reply({ embeds: [embed] });
         }
-
+                
         if (interaction.options.getSubcommand() === 'edit') {
             const slotSelect = new StringSelectMenuBuilder()
                 .setCustomId('slotSelect')
